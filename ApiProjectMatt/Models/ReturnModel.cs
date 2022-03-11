@@ -1,12 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ApiProjectMatt.Models
 {
+    [Table("ReturnTable")]
     public class ReturnModel
     {
+        public ReturnModel(int id, string status, string detail, string body, DateTime started, DateTime update)
+        {
+            this.ReturnID = id;
+            this.status = status;
+            this.detail = detail;
+            this.body = body;
+            //this should be pulled from the database.  setting to the past for this demo
+            this.started = DateTime.Now.AddHours(-1);
+            this.timeOfUpdate = DateTime.Now;
+        }
+        //primary key for the table
+        public int ReturnID { get; set; }
         //status at time of update
         public string status { get; set; }
         //details of the above status

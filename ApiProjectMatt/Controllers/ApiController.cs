@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ApiProjectMatt.Models;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,10 @@ namespace ApiProjectMatt.Controllers
     {
         [HttpPost]
         [Route("/request")]
-        public ActionResult PostRequest(string key)
+        public ActionResult PostRequest(string body)
         {
-
+            PostModel model = new PostModel();
+            model.body = body;
             return null;
         }
 
