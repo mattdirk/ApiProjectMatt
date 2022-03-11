@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj": {}
+    "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj": {}
   },
   "projects": {
-    "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj": {
+    "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj",
+        "projectUniqueName": "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj",
         "projectName": "ApiProjectMatt",
-        "projectPath": "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj",
+        "projectPath": "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt.csproj",
         "packagesPath": "C:\\Users\\mbodily-d\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\ApiProjectMatt\\obj\\",
+        "outputPath": "C:\\git\\ApiProjectMatt\\ApiProjectMatt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
