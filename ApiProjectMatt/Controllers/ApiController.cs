@@ -13,17 +13,17 @@ namespace ApiProjectMatt.Controllers
     {
         [HttpPost]
         [Route("/request")]
-        public ActionResult<PostModel> PostRequest(string body)
+        public ActionResult<MasterModel> PostRequest(string body)
         {
-            PostModel model = new PostModel();
+            MasterModel model = new MasterModel();
             model.body = body;
             DataService service = new DataService();
             //insert the call into the post model table
-            PostModel pModel = service.InsertPost(model);
+            MasterModel pModel = service.InsertIntoMaster(model);
 
             //take the id of the inserted record and construct the callback link
-            pModel.callback = string.Format("http://localhost/callback/{0}", pModel.PostID);
-            service.UpdatePost(model);
+            pModel.callback = string.Format("http://localhost/callback/{0}", pModel.MasterID);
+            service.UpdateMaster(model);
             //this endpoint is typically something id save to a config table or store in the web/app.config
             service.CallEndpoint("http://example.com/request", body);
             return pModel;
@@ -31,15 +31,19 @@ namespace ApiProjectMatt.Controllers
 
         [HttpPost]
         [Route("/callback/{id}")]
-        public ActionResult PostCallback(string id)
+        public ActionResult<MasterModel> PostCallback(int id)
         {
+            DataService service = new DataService();
+            service.GetMaster(id);
             return new StatusCodeResult(204);
         }
 
         [HttpPut]
         [Route("/callback/{id}")]
-        public ActionResult PutCallback(string id)
+        public ActionResult PutCallback(int id, string body)
         {
+            DataService service = new DataService();
+            service.GetMaster(id);
             return new StatusCodeResult(204);
         }
 

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ApiProjectMatt.Models
 {
-    [Table("ReturnTable")]
-    public class ReturnModel
+    [Table("MasterTable")]
+    public class MasterModel
     {
         //setup an empty constructor for when this doesn't need to be instantiated.
-        public ReturnModel() { }
-        public ReturnModel(int id, string status, string detail, string body, DateTime started, DateTime update)
+        public MasterModel() { }
+        public MasterModel(DateTime started, DateTime update, int id = 1, string status = "", string detail = "", string body = "")
         {
-            this.ReturnID = id;
+            this.MasterID = id;
             this.status = status;
             this.detail = detail;
             this.body = body;
@@ -22,11 +22,12 @@ namespace ApiProjectMatt.Models
             this.timeOfUpdate = DateTime.Now;
         }
         //primary key for the table
-        public int ReturnID { get; set; }
+        public int MasterID { get; set; }
         //status at time of update
         public string status { get; set; }
         //details of the above status
         public string detail { get; set; }
+        public string callback { get; set; }
         //original body submitted
         public string body { get; set; }
         //time that the original post was made

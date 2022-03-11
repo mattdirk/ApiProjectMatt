@@ -37,20 +37,20 @@ namespace ApiProjectMatt
 			return result;
 		}
 
-		public PostModel InsertPost(PostModel model)
+		public MasterModel InsertIntoMaster(MasterModel model)
         {
 			//using (var transaction = _contextClass.Database.BeginTransaction())
 			//{
 			//	try
 			//	{
-			//		var postModel = new PostModel
+			//		var masterModel = new MasterModel
 			//		{
 			//			body = model.body,
 			//			callback = model.callback
 			//		};
 
-			//		_contextClass.PostModel.Add(postModel);
-			//		PostModel tempModel = _contextClass.SaveChanges();
+			//		_contextClass.MasterModel.Add(masterModel);
+			//		MasterModel tempModel = _contextClass.SaveChanges();
 
 			//		transaction.Commit();
 			//		//return the inserted object
@@ -62,17 +62,16 @@ namespace ApiProjectMatt
 			//		transaction.Rollback();
 			//	}
 			//}
-			return new PostModel(1,model.body, model.callback);
+			return new MasterModel(DateTime.Now, DateTime.Now,1 ,model.body , model.callback);
 		}
 
-		public bool UpdatePost(PostModel model)
+		public bool UpdateMaster(MasterModel model)
 		{
 			//using (var transaction = _contextClass.Database.BeginTransaction())
 			//{
 			//	try
 			//	{
-			//		var existing = _aveContext.PostModel.Where(x => x.PostID == model.PostID).FirstOrDefault();
-			//		existing.
+			//		var existing = _aveContext.MasterModel.Where(x => x.PostID == model.PostID).FirstOrDefault();
 			//		_contextClass.SaveChanges();
 
 			//		transaction.Commit();
@@ -87,5 +86,25 @@ namespace ApiProjectMatt
 			//}
 			return true;
 		}
+
+		public MasterModel GetMaster(int id)
+        {
+			//using (var transaction = _contextClass.Database.BeginTransaction())
+			//{
+			//	try
+			//	{
+			//		var existing = _aveContext.MasterModel.Where(x => x.PostID == id).FirstOrDefault();
+			//      return tempModel;
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//		//Log the exception
+			//		transaction.Rollback();
+			//	}
+			//}
+			return new MasterModel();
+		}
+
+
 	}
 }
