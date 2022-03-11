@@ -1,6 +1,7 @@
 ﻿using ApiProjectMatt.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,16 +43,26 @@ namespace ApiProjectMatt.Controllers
         [Route("/callback/{id}")]
         public ActionResult PutCallback(int id, string body)
         {
+            BodyModel bmodel = JsonConvert.DeserializeObject<BodyModel>(body);
+
             DataService service = new DataService();
-            service.GetMaster(id);
+            MasterModel mmodel = service.GetMaster(id);
+            mmodel.status = bmodel.status;
+            mmodel.detail = bmodel.detail;
+            service.UpdateMaster(mmodel);
             return new StatusCodeResult(204);
         }
 
         [HttpGet]
         [Route("/status/{id}")]
-        public ActionResult GetStatus(string id)
+        public ActionResult<BodyModel> GetStatus(int id)
         {
-            return null;
+            DataService service = new DataService();
+            MasterModel mmodel = service.GetMaster(id);
+            BodyModel bmodel = new BodyModel();
+            bmodel.status = mmodel.status;
+            bmodel.detail = mmodel.detail;
+            return bmodel;
         }
     }
 }
