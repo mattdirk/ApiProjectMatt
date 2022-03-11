@@ -9,6 +9,8 @@ namespace ApiProjectMatt.Models
     [Table("PutTable")]
     public class PutModel
     {
+        //setup an empty constructor for when this doesn't need to be instantiated.
+        public PutModel() { }
         public PutModel(int id, string status, string detail)
         {
             this.PutID = id;

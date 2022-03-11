@@ -9,6 +9,8 @@ namespace ApiProjectMatt.Models
     [Table("ReturnTable")]
     public class ReturnModel
     {
+        //setup an empty constructor for when this doesn't need to be instantiated.
+        public ReturnModel() { }
         public ReturnModel(int id, string status, string detail, string body, DateTime started, DateTime update)
         {
             this.ReturnID = id;

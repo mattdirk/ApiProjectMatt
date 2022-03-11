@@ -62,7 +62,30 @@ namespace ApiProjectMatt
 			//		transaction.Rollback();
 			//	}
 			//}
-			return new PostModel(;
+			return new PostModel(1,model.body, model.callback);
+		}
+
+		public bool UpdatePost(PostModel model)
+		{
+			//using (var transaction = _contextClass.Database.BeginTransaction())
+			//{
+			//	try
+			//	{
+			//		var existing = _aveContext.PostModel.Where(x => x.PostID == model.PostID).FirstOrDefault();
+			//		existing.
+			//		_contextClass.SaveChanges();
+
+			//		transaction.Commit();
+			//		//return the inserted object
+			//      return tempModel;
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//		//Log the exception
+			//		transaction.Rollback();
+			//	}
+			//}
+			return true;
 		}
 	}
 }

@@ -9,6 +9,8 @@ namespace ApiProjectMatt.Models
     [Table("PostTable")]
     public class PostModel
     {
+        //setup an empty constructor for when this doesn't need to be instantiated.
+        public PostModel() { }
         public PostModel(int id, string body, string callback)
         {
             this.PostID = id;
@@ -20,6 +22,6 @@ namespace ApiProjectMatt.Models
         //Key that is sent with the callback link
         public string body { get; set; }
         //link to 3rd party tool
-        public string callback { get; set; } = "http://example.com/request";
+        public string callback { get; set; } = "";
     }
 }
